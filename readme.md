@@ -1,1 +1,1 @@
-Boilerplate Application - React, React-Router, Foundation, SCSS
+Timer Application - React, React-Router, Foundation, SCSS
