@@ -1,0 +1,13 @@
+.controls {
+  // use flexbox system to layout elements
+  display: flex;
+  justify-content: center;
+
+  .button {
+    padding: .75rem 3rem;
+  }
+  // pseudoclass selector to increase space between the buttons
+  .button:first-child {
+    margin-right: 1.5rem;
+  }
+}
