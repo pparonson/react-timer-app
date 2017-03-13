@@ -22,7 +22,7 @@ const Countdown = React.createClass({
   },
   startTimer() {
     // setInterval causes fn to call at set intervals
-    setInterval(() => {
+    this.timer = setInterval(() => {
       const newCount = this.state.count - 1;
       // navive react fn that accepts an obj arg
       this.setState({
