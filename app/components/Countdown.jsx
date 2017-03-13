@@ -31,6 +31,15 @@ const Countdown = React.createClass({
       }
     }
   },
+
+  // component lifecycle method, automatically called by react when component
+  // gets removed from DOM
+  componentWillUnmount() {
+    // cancel setInterval fn call
+    clearInterval(this.timer);
+    this.timer = undefined;
+  },
+
   startTimer() {
     // setInterval causes fn to call at set intervals
     this.timer = setInterval(() => {
@@ -40,6 +49,11 @@ const Countdown = React.createClass({
         // ternary operator to check if state is 0
         count: newCount >= 0 ? newCount : 0
       });
+
+      if (newCount === 0) {
+        this.setState({countdownStatus: 'stopped'})
+      }
+      
     }, 1000);
   },
   handleSetCountdown(seconds) {
