@@ -1,6 +1,7 @@
 const React = require('react');
 const {Link, IndexLink} = require('react-router');
 
+// simple presentational component, stateless component
 const Nav = () => {
   return (
     <div className="top-bar">
