@@ -1,6 +1,7 @@
 const React = require('react');
 
 const Clock = require('Clock');
+const TimerForm = require('TimerForm');
 
 const Timer = React.createClass({
   getInitialState() {
@@ -51,18 +52,20 @@ const Timer = React.createClass({
 
   handleSetTimer() {
     this.setState({
+      count: 0,
       timerStatus: 'started'
     });
   },
 
   render() {
-    const timerStatus = this.state;
+    const {timerStatus} = this.state;
+    console.log(timerStatus);
 
     return (
       <div>
         <h1 className="page-title">Timer</h1>
-        <Clock/>
-        <Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange}/>
+        <Clock totalSeconds={this.state.count}/>
+        <TimerForm onSetTimer={this.handleSetTimer}/>
       </div>
     );
   }

@@ -11,24 +11,18 @@ describe('Timer', () => {
     expect(Timer).toExist();
   });
 
-  // assert that handleSetTimer status and state are update and count increments
+  describe('handleSetTimer', () => {
+    // assert that handleSetTimer status and state are update and count increments
+    it('should set state to "started" and then increment count', (done) => {
+      const timer = TestUtils.renderIntoDocument(<Timer/>);
+      timer.handleSetTimer();
 
-
-
-  // assert that handleSetCountdown status and state are updated and count decrements
-  describe('handleSetCountdown', () => {
-    // done arg tells mocha to wait until done is called for async actions
-    it('should set state to "started" and then countdown', (done) => {
-      // render Countdown component
-      const countdown = TestUtils.renderIntoDocument(<Countdown/>);
-      countdown.handleSetCountdown(10);
-
-      expect(countdown.state.count).toBe(10);
-      expect(countdown.state.countdownStatus).toBe('started');
-      // async
+      expect(timer.state.count).toBe(0);
+      expect(timer.state.timerStatus).toBe('started');
       setTimeout(() => {
-        expect(countdown.state.count).toBe(9);
+        expect(timer.state.count).toBe(1);
         done();
       }, 1001);
     });
+  });
 });
