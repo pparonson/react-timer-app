@@ -25,7 +25,6 @@ const Clock = React.createClass({
       // prepend a 0 to min
       minutes = `0${minutes}`;
     }
-
     return `${minutes}:${seconds}`;
   },
 

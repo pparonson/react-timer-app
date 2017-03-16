@@ -2,6 +2,7 @@ const React = require('react');
 
 const CountdownForm = React.createClass({
   onSubmit(e) {
+    // prevent full browser refresh
     e.preventDefault();
 
     const strSeconds = this.refs.seconds.value;
@@ -9,7 +10,7 @@ const CountdownForm = React.createClass({
     if (strSeconds.match(/^[0-9]*$/)) {
       // clear the field to empty str
       this.refs.seconds.value = '';
-      // call parent fn: Countdown.jsx
+      // call parent fn Countdown.jsx and pass the seconds as a prop
       this.props.onSetCountdown(parseInt(strSeconds, 10));
     }
   },

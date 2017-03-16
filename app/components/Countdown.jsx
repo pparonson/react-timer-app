@@ -56,6 +56,8 @@ const Countdown = React.createClass({
 
     }, 1000);
   },
+
+  // fn to receive seconds passed from child and creates state
   handleSetCountdown(seconds) {
     this.setState({
       count: seconds,
@@ -73,7 +75,7 @@ const Countdown = React.createClass({
   },
 
   render() {
-    // get state
+    // get current state with destructuring
     const {count, countdownStatus} = this.state;
     // fn to conditionally render Controls or CountdownForm
     const renderControlArea = () => {
@@ -81,13 +83,14 @@ const Countdown = React.createClass({
         // render Controls if not stoped
         return <Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange}/>
       } else {
-        // render CountdownForm
+        // render CountdownForm and specify prop to be received by Countdown.jsx
         return <CountdownForm onSetCountdown={this.handleSetCountdown}/>
       }
     };
     return (
       <div>
         <h1 className="page-title">Countdown</h1>
+        {/* count is received from current state passed with destructuring */}
         <Clock totalSeconds={count}/>
         {/* <CountdownForm onSetCountdown={this.handleSetCountdown}/> */}
         {renderControlArea()}

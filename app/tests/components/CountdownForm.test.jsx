@@ -1,8 +1,9 @@
+const expect = require('expect');
 const React = require('react');
 const ReactDOM = require('react-dom');
-const expect = require('expect');
-const $ = require('jQuery');
 const TestUtils = require('react-addons-test-utils');
+const $ = require('jQuery');
+
 
 const CountdownForm = require('CountdownForm');
 
@@ -24,6 +25,21 @@ describe('CountdownForm', () => {
     countdownForm.refs.seconds.value = '109';
     // simulate submit using jQuery to get form tag
     TestUtils.Simulate.submit($el.find('form')[0]);
+
     expect(spy).toHaveBeenCalledWith(109);
+  });
+
+  it('should NOT call onSetCountdown if invalid arguments (seconds) entered', () => {
+    const spy = expect.createSpy();
+    const countdownForm = TestUtils.renderIntoDocument(<CountdownForm onSetCountdown={spy}/>);
+
+    let $el = $(ReactDOM.findDOMNode(countdownForm));
+
+    // set empty value
+    countdownForm.refs.seconds.value = 'asdfgit';
+
+    TestUtils.Simulate.submit($el.find('form')[0]);
+
+    expect(spy).toNotHaveBeenCalled();
   });
 });
