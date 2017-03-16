@@ -11,7 +11,7 @@ describe('Countdown', () => {
     expect(Countdown).toExist();
   });
 
-  // assert that handleSetCountdown status and state are update and count decrements
+  // assert that handleSetCountdown status and state are updated and count decrements
   describe('handleSetCountdown', () => {
     // done arg tells mocha to wait until done is called for async actions
     it('should set state to "started" and then countdown', (done) => {
