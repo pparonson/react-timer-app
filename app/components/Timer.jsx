@@ -34,6 +34,15 @@ const Timer = React.createClass({
     }
   },
 
+  // component lifecycle method, automatically called by react when component
+  // gets removed from DOM
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
+    // cancel setInterval fn call
+    clearInterval(this.timer);
+    this.timer = undefined;
+  },
+
   startTimer() {
     // setInterval causes fn to call at set intervals
     this.timer = setInterval(() => {
@@ -53,23 +62,21 @@ const Timer = React.createClass({
     }, 1000);
   },
 
-  handleSetTimer() {
+  handleStatusChange(newStatus) {
     this.setState({
-      timerStatus: 'started'
+      timerStatus: newStatus
     });
   },
 
   render() {
-    const {timerStatus} = this.state;
+    const {count, timerStatus} = this.state;
     console.log(timerStatus);
 
     return (
       <div>
         <h1 className="page-title">Timer</h1>
-        <Clock totalSeconds={this.state.count}/>
-        {/* <TimerForm onSetTimer={this.handleSetTimer}/> */}
-        {/* <Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange}/> */}
-        <Controls timerStatus={timerStatus}/>
+        <Clock totalSeconds={count}/>
+        <Controls timerStatus={timerStatus} onStatusChange={this.handleStatusChange}/>
       </div>
     );
   }

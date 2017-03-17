@@ -8,9 +8,9 @@ const Controls = React.createClass({
     // specifies fn to call when button is clicked
     onStatusChange: React.PropTypes.func.isRequired
   },
-
+  // onClinkHandler fn
   onStatusChange(newStatus) {
-    // currying pattern; returns a new fn with the status passed as arg
+    // currying pattern; returns a new fn with the newStatus passed as arg
     return () => {
       this.props.onStatusChange(newStatus);
     }
