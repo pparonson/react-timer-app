@@ -21,6 +21,7 @@ describe('Controls', () => {
       const $el = $(ReactDOM.findDOMNode(controls));
       const $pauseButton = $el.find('button:contains(Pause)');
 
+      // length prop on jQuery selector is equal to the number of items found by .find()
       expect($pauseButton.length).toBe(1);
     });
 
