@@ -17,7 +17,7 @@ describe('Controls', () => {
   describe('render Countdown controls', () => {
     it('should render Countdown pause button when started', () => {
       // render Controls and pass countdownStatus prop for testing
-      const controls = TestUtils.renderIntoDocument(<Controls countdownStatus="started"/>);
+      const controls = TestUtils.renderIntoDocument(<Controls status="started"/>);
       const $el = $(ReactDOM.findDOMNode(controls));
       const $pauseButton = $el.find('button:contains(Pause)');
 
@@ -26,7 +26,7 @@ describe('Controls', () => {
     });
 
     it('should render Count start button if status equals paused', () => {
-      const controls = TestUtils.renderIntoDocument(<Controls countdownStatus="paused"/>);
+      const controls = TestUtils.renderIntoDocument(<Controls status="paused"/>);
       const $el = $(ReactDOM.findDOMNode(controls));
       const $startButton = $el.find('button:contains(Start)');
 
@@ -37,7 +37,7 @@ describe('Controls', () => {
   describe('render Timer controls', () => {
     it('should render Timer pause button when started', () => {
       // render Controls and pass countdownStatus prop for testing
-      const controls = TestUtils.renderIntoDocument(<Controls timerStatus="started"/>);
+      const controls = TestUtils.renderIntoDocument(<Controls status="started"/>);
       const $el = $(ReactDOM.findDOMNode(controls));
       const $pauseButton = $el.find('button:contains(Pause)');
 
@@ -45,7 +45,7 @@ describe('Controls', () => {
     });
 
     it('should render Timer start button if status equals paused', () => {
-      const controls = TestUtils.renderIntoDocument(<Controls timerStatus="paused"/>);
+      const controls = TestUtils.renderIntoDocument(<Controls status="paused"/>);
       const $el = $(ReactDOM.findDOMNode(controls));
       const $startButton = $el.find('button:contains(Start)');
 

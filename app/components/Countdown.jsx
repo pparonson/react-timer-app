@@ -44,7 +44,7 @@ const Countdown = React.createClass({
     // setInterval causes fn to call at set intervals
     this.timer = setInterval(() => {
       const newCount = this.state.count - 1;
-      // navive react fn that accepts an obj arg
+      // native react fn that accepts an obj arg
       this.setState({
         // ternary operator to check if state is 0
         count: newCount >= 0 ? newCount : 0
@@ -81,7 +81,7 @@ const Countdown = React.createClass({
     const renderControlArea = () => {
       if (countdownStatus !== 'stopped') {
         // render Controls if not stoped
-        return <Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange}/>
+        return <Controls status={countdownStatus} onStatusChange={this.handleStatusChange}/>
       } else {
         // render CountdownForm and specify prop to be received by Countdown.jsx
         return <CountdownForm onSetCountdown={this.handleSetCountdown}/>
@@ -92,7 +92,6 @@ const Countdown = React.createClass({
         <h1 className="page-title">Countdown</h1>
         {/* count is received from current state passed with destructuring */}
         <Clock totalSeconds={count}/>
-        {/* <CountdownForm onSetCountdown={this.handleSetCountdown}/> */}
         {renderControlArea()}
       </div>
     );

@@ -37,10 +37,8 @@ const Timer = React.createClass({
   // component lifecycle method, automatically called by react when component
   // gets removed from DOM
   componentWillUnmount() {
-    console.log('componentWillUnmount');
     // cancel setInterval fn call
     clearInterval(this.timer);
-    this.timer = undefined;
   },
 
   startTimer() {
@@ -70,13 +68,12 @@ const Timer = React.createClass({
 
   render() {
     const {count, timerStatus} = this.state;
-    console.log(timerStatus);
 
     return (
       <div>
         <h1 className="page-title">Timer</h1>
         <Clock totalSeconds={count}/>
-        <Controls timerStatus={timerStatus} onStatusChange={this.handleStatusChange}/>
+        <Controls status={timerStatus} onStatusChange={this.handleStatusChange}/>
       </div>
     );
   }

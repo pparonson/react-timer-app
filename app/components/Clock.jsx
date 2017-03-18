@@ -1,11 +1,11 @@
 const React = require('react');
 
 const Clock = React.createClass({
-  // specify default props if not passed down from parent
+  // props expected by Clock component
   getDefaultProps() {
     totalSeconds: 0
   },
-  // define propTypes
+  // define propTypes; optional
   propTypes: {
     totalSeconds: React.PropTypes.number
   },
