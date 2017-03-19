@@ -6,6 +6,10 @@ const CountdownForm = React.createClass({
     e.preventDefault();
 
     const strSeconds = this.refs.seconds.value;
+
+    // jQuery selector to display input
+    // console.log(`input: ${$('input').length}`);
+    console.log('input: ', $('input').length);
     // validation with regEx: 0 - 9
     if (strSeconds.match(/^[0-9]*$/)) {
       // clear the field to empty str

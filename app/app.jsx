@@ -8,9 +8,11 @@ const Main = require('Main');
 const Timer = require('Timer');
 const Countdown = require('Countdown');
 
-$(document).foundation();
-// loaders
+
+// load foundation
 require('style!css!foundation-sites/dist/css/foundation.min.css');
+$(document).foundation();
+
 require('style!css!sass!applicationStyles')
 
 // component routing
