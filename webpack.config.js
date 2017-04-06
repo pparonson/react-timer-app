@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 // native node path module
-// const path = require('path');
+const path = require('path');
 
 module.exports = {
   // entry: './app/app.jsx',
@@ -48,10 +48,10 @@ module.exports = {
       }
     ]
   },
-  // sassLoader: {
-  //   includePaths: [
-  //     path.resolve(__dirname, './node_modules/foundation-sites/scss')
-  //   ]
-  // },
+  sassLoader: {
+    includePaths: [
+      path.resolve(__dirname, './node_modules/foundation-sites/scss')
+    ]
+  },
   devtool: 'cheap-module-eval-source-map'
 };

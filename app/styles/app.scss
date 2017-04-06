@@ -1,9 +1,9 @@
 @import "base/variables";
 
 // foundation loader
-// @import "base/foundation-settings";
-// @import "foundation";
-// @include foundation-everything;
+@import "base/foundation-settings";
+@import "foundation";
+@include foundation-everything;
 
 //components
 @import "components/nav";
